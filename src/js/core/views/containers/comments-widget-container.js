@@ -4,12 +4,18 @@ import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
 import * as CommentsActions from '../actions/comments-actions';
 import Comment from '../components/comment';
+import PostCommentForm from '../components/post-comment-form';
 import {MainProgress} from '../components/progress';
 
 class CommentsWidgetContainer extends Component {
 
     onDeleteComment(_id) {
         this.props.deleteComment(_id, this.props.configuration.context);
+    }
+
+    onPostComment(body) {
+        const {target, context, commentUrl} = this.props.configuration;
+        this.props.postComment(body, target, context, commentUrl);
     }
 
     render() {
@@ -19,10 +25,11 @@ class CommentsWidgetContainer extends Component {
                 {this.renderCommentsTitle()}
                 
                 <div className="csui-comments-list">
-                    {comments.comments.map((comment, index) => 
-                        <Comment key={index} comment={comment} onDeleteHandler={_ => this.onDeleteComment(comment._id)}/>
+                    {comments.comments.map(comment => 
+                        <Comment key={comment._id} comment={comment} onDeleteHandler={_ => this.onDeleteComment(comment._id)}/>
                     )}
                 </div>
+                <PostCommentForm onSubmit={this.onPostComment.bind(this)}/>
                 <MainProgress show={comments.isRequesting}/>    
             </div>
         );

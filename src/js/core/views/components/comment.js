@@ -7,6 +7,13 @@ import PropTypes from 'prop-types';
  * 
  */
 class Comment extends Component {
+
+    onDeleteClick(event) {
+        const {comment} = this.props;
+        event.preventDefault();
+        this.props.onDeleteHandler(comment._id);
+    }
+
     render() {
         const {comment, onDeleteHandler} = this.props;
         return (
@@ -27,7 +34,7 @@ class Comment extends Component {
                     <ul className="csui-comment-actions csui-right">
                         <li><a href="#">Like</a></li>
                         <li><a href="#">Reply</a></li>
-                        <li><a href="#" onClick={_ => onDeleteHandler(comment._id)}>Delete</a></li>
+                        <li><a href="#" onClick={this.onDeleteClick.bind(this)}>Delete</a></li>
                     </ul>
                 </div>
                 <div className="csui-comment-children"></div>
