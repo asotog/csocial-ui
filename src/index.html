@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Comments Sample</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="/favicon.ico?v=1" />
+    <link rel="stylesheet" href="/build/main.css">
+</head>
+
+<body>
+    <div class="main-container" style="max-width: 600px; padding: 20px;">
+        <div id="post-1" class="post">
+            <h1>Post 1</h1>
+            <p>Aliquip labore nostrud ullamco irure do dolor commodo minim velit exercitation cupidatat laboris consectetur mollit. Veniam tempor deserunt ullamco do amet velit aliquip Lorem tempor. Sit occaecat velit eiusmod proident adipisicing Lorem quis qui minim labore Lorem incididunt do mollit.</p>
+            <p>Aute dolor voluptate velit veniam consequat esse occaecat culpa do voluptate irure anim. Duis magna mollit veniam cupidatat eu et aliqua veniam magna ipsum voluptate. Cupidatat exercitation velit aliquip exercitation ut.</p>
+        </div>
+        
+        <div id="post-2" class="post">
+            <h1>Post 2</h1>
+            <p>Aliquip labore nostrud ullamco irure do dolor commodo minim velit exercitation cupidatat laboris consectetur mollit. Veniam tempor deserunt ullamco do amet velit aliquip Lorem tempor. Sit occaecat velit eiusmod proident adipisicing Lorem quis qui minim labore Lorem incididunt do mollit.</p>
+            <p>Aute dolor voluptate velit veniam consequat esse occaecat culpa do voluptate irure anim. Duis magna mollit veniam cupidatat eu et aliqua veniam magna ipsum voluptate. Cupidatat exercitation velit aliquip exercitation ut.</p>
+        </div>
+    </div>
+    <script>
+        /* global configuration */
+        var crafterSocial_cfg = {
+            'url.service.api': 'http://localhost:8080/crafter-social/api/3/',
+            'url.security.login': 'http://localhost:8080/crafter-social/crafter-security-login',
+            'url.security.active': 'http://localhost:8080/crafter-social/crafter-security-current-auth'
+        };
+        /* listen event to be notified once is loaded and ready to be used */
+        document.addEventListener('crafter.social.ready', function(e) {
+            crafter.social.comments.init({
+                target: '#post-1',
+                context: 'f5b143c2-f1c0-4a10-b56e-f485f00d3fe9',
+                commentUrl: '/index.html'
+            });
+
+            crafter.social.comments.init({
+                target: '#post-2',
+                context: 'f5b143c2-f1c0-4a10-b56e-f485f00d3fe9',
+                commentUrl: '/index.html'
+            });
+        });
+    </script>
+
+    <script src="/build/main.js"></script>
+</body>
+
+</html>

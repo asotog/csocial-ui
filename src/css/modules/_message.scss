@@ -1,0 +1,17 @@
+.csui-message {
+    border-radius: 4px;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.csui-message.csui-message-success {
+    background: $message-success-bg-color;
+    border: 1px solid $message-success-border-color;
+    color: $message-success-text-color;
+}
+
+.csui-message.csui-message-error {
+    background: $message-error-bg-color;
+    border: 1px solid $message-error-border-color;
+    color: $message-error-text-color;
+}

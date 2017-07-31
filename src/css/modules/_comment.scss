@@ -1,0 +1,120 @@
+/* 
+Comments List Title
+usually displays the comments count/total otherwise suggests user to be the first or comment 
+*/
+.csui-comments-title {
+    font-size: 20px;
+}
+
+/* 
+Comment wrapper
+*/
+.csui-comment {
+    @include clearfix;
+    position: relative;
+    .csui-comment-inner {
+        @include clearfix;
+        border-bottom: 1px solid $comment-separator-color;
+        padding: 10px 0;   
+    }
+    .csui-comment-inner, 
+    .csui-comment-children {
+        transition: .8s opacity;
+    }
+    .csui-comment-progress {
+        display: none;
+    }
+    &.csui-loading {
+        .csui-comment-inner, 
+        .csui-comment-children {
+            opacity: .4;
+        }
+        &:after { // this is the disabler mask, user is not able to do any interaction with the  comment
+            content: ' ';
+            height: 100%;
+            left: 0;
+            top: 0;
+            width: 100%;
+        }
+        .csui-comment-progress {
+            display: block;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+}
+
+/* 
+Comment's head: user name, profile image, date
+*/
+.csui-comment .csui-comment-head {
+    min-height: $comment-head-height;
+    padding: 0 0 0 $comment-head-height + 10;
+    position: relative;
+    .csui-comment-head-portrait {
+        display: inline-block;
+        height: $comment-head-height;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: $comment-head-height;
+        img {
+            border-radius: 50%;
+        }
+    }
+    .csui-comment-author,
+    .csui-comment-datetime {
+        display: block;
+    }
+    .csui-comment-author {
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .csui-comment-datetime {
+        color: $comment-datetime-color;
+        font-size: 12px;
+    }
+}
+
+/* 
+Comment's body
+*/
+.csui-comment .csui-comment-body {
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+/* 
+Comment's actions: delete, reply, like, upload image
+*/
+.csui-comment .csui-comment-actions {
+    &, li {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        display: block;
+        float: left;
+        &:after {
+            content: '|';
+            color: $comment-actions-separator-color;
+            font-size: 11px;
+            padding: 0 5px;
+            vertical-align: middle;
+        }
+        &:last-child:after {
+            content: '';
+        }
+    }
+    a {
+        color: $comment-actions-text-color;
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+            color: $link-color-hover;
+        }
+    }
+}

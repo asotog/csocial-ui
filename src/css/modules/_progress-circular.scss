@@ -1,0 +1,168 @@
+/* 
+Circular Progress: spinner based on http://materializecss.com/preloader.html#circular
+*/
+
+.csui-progress-main { // progress loader wrapper when loader shown before widget is loaded
+    padding: 20px 0;
+    text-align: center;
+}
+
+.csui-progress-circular {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    height: 50px
+}
+
+.csui-progress-circular.csui-tiny {
+    width: 16px;
+    height: 16px;
+    .csui-circle-clipper .csui-circle {
+        border-width: 1px;
+    }
+}
+
+.csui-progress-circular.csui-small {
+    width: 36px;
+    height: 36px
+}
+
+.csui-progress-circular.csui-big {
+    width: 64px;
+    height: 64px;
+}
+
+.csui-progress-circular.csui-active {
+    animation: container-rotate 1568ms linear infinite
+}
+
+@keyframes container-rotate {
+    to {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg)
+    }
+}
+
+.csui-spinner-layer {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    border-color: $progress-circular-color;
+}
+
+.csui-active .csui-spinner-layer {
+    opacity: 1;
+    animation: fill-unfill-rotate 5332ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+@keyframes fill-unfill-rotate {
+    12.5% {
+        transform: rotate(135deg)
+    }
+    25% {
+        transform: rotate(270deg)
+    }
+    37.5% {
+        transform: rotate(405deg)
+    }
+    50% {
+        transform: rotate(540deg)
+    }
+    62.5% {
+        transform: rotate(675deg)
+    }
+    75% {
+        transform: rotate(810deg)
+    }
+    87.5% {
+        transform: rotate(945deg)
+    }
+    to {
+        transform: rotate(1080deg)
+    }
+}
+
+.csui-gap-patch {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 100%;
+    overflow: hidden;
+    border-color: inherit
+}
+
+.csui-gap-patch .csui-circle {
+    width: 1000%;
+    left: -450%
+}
+
+.csui-circle-clipper {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    border-color: inherit
+}
+
+.csui-circle-clipper .csui-circle {
+    width: 200%;
+    height: 100%;
+    border-width: 3px;
+    border-style: solid;
+    border-color: inherit;
+    border-bottom-color: transparent !important;
+    border-radius: 50%;
+    -webkit-animation: none;
+    animation: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0
+}
+
+.csui-circle-clipper.csui-left .csui-circle {
+    left: 0;
+    border-right-color: transparent !important;
+    transform: rotate(129deg)
+}
+
+.csui-circle-clipper.csui-right .csui-circle {
+    left: -100%;
+    border-left-color: transparent !important;
+    transform: rotate(-129deg)
+}
+
+.csui-active .circle-clipper.csui-left .csui-circle {
+    animation: left-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+.csui-active .csui-circle-clipper.csui-right .csui-circle {
+    animation: right-spin 1333ms cubic-bezier(0.4, 0, 0.2, 1) infinite both
+}
+
+@keyframes left-spin {
+    from {
+        transform: rotate(130deg)
+    }
+    50% {
+        transform: rotate(-5deg)
+    }
+    to {
+        transform: rotate(130deg)
+    }
+}
+
+@keyframes right-spin {
+    from {
+        transform: rotate(-130deg)
+    }
+    50% {
+        transform: rotate(5deg)
+    }
+    to {
+        transform: rotate(-130deg)
+    }
+}

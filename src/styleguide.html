@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Styleguide</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" href="/favicon.ico?v=1" />
+    <link rel="stylesheet" href="/build/main.css">
+    <style>
+        .styleguide {
+            padding: 10px;
+        }
+        .sample {
+            display: inline-block;
+            padding: 20px;
+            vertical-align: top;
+        }
+        .sample-title {
+            color: gray;
+            display: block;
+        }
+    </style>
+</head>
+
+<body class="styleguide">
+    
+    <div class="samples csui">
+        <h2>Button</h2>
+        <div class="sample">
+            <strong class="sample-title">Normal</strong>
+            <button class="csui-button">Submit</button>
+        </div>
+        <div class="sample">
+            <strong class="sample-title">Disabled</strong>
+            <button class="csui-button" disabled>Submit</button>
+        </div>
+        <div class="sample">
+            <strong class="sample-title">Progress</strong>
+            <button class="csui-button csui-button-progress csui-loading">
+                <div class="csui-button-indicator">
+                    <div class="csui-progress-circular csui-active csui-tiny">
+                        <div class="csui-spinner-layer">
+                            <div class="csui-circle-clipper csui-left">
+                                <div class="csui-circle"></div>
+                            </div>
+                            <div class="csui-gap-patch">
+                                <div class="csui-circle"></div>
+                            </div>
+                            <div class="csui-circle-clipper csui-right">
+                                <div class="csui-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                Submit
+            </button>
+        </div>
+        <div class="sample">
+            <strong class="sample-title">Progress / Disabled</strong>
+            <button class="csui-button csui-button-progress csui-loading" disabled>
+                <div class="csui-button-indicator">
+                    <div class="csui-progress-circular csui-active csui-tiny">
+                        <div class="csui-spinner-layer">
+                            <div class="csui-circle-clipper csui-left">
+                                <div class="csui-circle"></div>
+                            </div>
+                            <div class="csui-gap-patch">
+                                <div class="csui-circle"></div>
+                            </div>
+                            <div class="csui-circle-clipper csui-right">
+                                <div class="csui-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                Submit
+            </button>
+        </div>
+    </div>
+    <div class="samples csui">
+        <h2>Message</h2>
+        <div class="sample">
+            <strong class="sample-title">Success</strong>
+            <div class="csui-message csui-message-success">Operation Successful</div>
+        </div>
+        <div class="sample">
+            <strong class="sample-title">Error</strong>
+            <div class="csui-message csui-message-error">There was an error</div>
+        </div>
+    </div>
+    <div class="samples csui">
+        <h2>Comment</h2>
+        <div class="sample">
+            <strong class="sample-title">Normal</strong>
+            <div class="csui-comment">
+                <div class="csui-comment-inner">
+                    <div class="csui-comment-head">
+                        <span class="csui-comment-head-portrait">
+                            <img src="https://dummyimage.com/200x200/c7c7c7/000000" alt="Nelson Gregory">
+                        </span>
+                        <span class="csui-comment-author">Nelson Gregory</span>
+                        <span class="csui-comment-datetime">May 06, 2016</span>
+                    </div>
+                    <div class="csui-comment-body">Aliquip proident exercitation esse cillum duis esse.</div>
+                    
+                    <ul class="csui-comment-actions csui-left">
+                        <li><a href="#">Upload a Photo</a></li>
+                    </ul>
+                    <ul class="csui-comment-actions csui-right">
+                        <li><a href="#">Like</a></li>
+                        <li><a href="#">Reply</a></li>
+                        <li><a href="#">Delete</a></li>
+                    </ul>
+                </div>
+                <div class="csui-comment-children"></div>
+            </div>
+            <div class="csui-comment">
+                <div class="csui-comment-inner">
+                    <div class="csui-comment-head">
+                        <span class="csui-comment-head-portrait">
+                            <img src="https://dummyimage.com/200x200/c7c7c7/000000" alt="Nelson Gregory">
+                        </span>
+                        <span class="csui-comment-author">Nelson Gregory</span>
+                        <span class="csui-comment-datetime">May 06, 2016</span>
+                    </div>
+                    <div class="csui-comment-body">Aliquip proident exercitation esse cillum duis esse.</div>
+                    
+                    <ul class="csui-comment-actions csui-left">
+                        <li><a href="#">Upload a Photo</a></li>
+                    </ul>
+                    <ul class="csui-comment-actions csui-right">
+                        <li><a href="#">Like</a></li>
+                        <li><a href="#">Reply</a></li>
+                        <li><a href="#">Delete</a></li>
+                    </ul>
+                </div>
+                <div class="csui-comment-children"></div>
+            </div>
+        </div>
+        <div class="sample">
+            <strong class="sample-title">Progress</strong>
+            <div class="csui-comment csui-loading">
+                <div class="csui-comment-inner">
+                    <div class="csui-comment-head">
+                        <span class="csui-comment-head-portrait">
+                            <img src="https://dummyimage.com/200x200/c7c7c7/000000" alt="Nelson Gregory">
+                        </span>
+                        <span class="csui-comment-author">Nelson Gregory</span>
+                        <span class="csui-comment-datetime">May 06, 2016</span>
+                    </div>
+                    <div class="csui-comment-body">Aliquip proident exercitation esse cillum duis esse.</div>
+                    
+                    <ul class="csui-comment-actions csui-left">
+                        <li><a href="#">Upload a Photo</a></li>
+                    </ul>
+                    <ul class="csui-comment-actions csui-right">
+                        <li><a href="#">Like</a></li>
+                        <li><a href="#">Reply</a></li>
+                        <li><a href="#">Delete</a></li>
+                    </ul>
+                </div>
+                <div class="csui-comment-children"></div>
+                <div class="csui-comment-progress">
+                    <div class="csui-progress-circular csui-active csui-small">
+                        <div class="csui-spinner-layer">
+                            <div class="csui-circle-clipper csui-left">
+                                <div class="csui-circle"></div>
+                            </div>
+                            <div class="csui-gap-patch">
+                                <div class="csui-circle"></div>
+                            </div>
+                            <div class="csui-circle-clipper csui-right">
+                                <div class="csui-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="samples csui">
+        <h2>Circular Progress</h2>
+        <div class="sample">
+            <strong class="sample-title">Tiny</strong>
+            <div class="csui-progress-circular csui-active csui-tiny">
+                <div class="csui-spinner-layer">
+                    <div class="csui-circle-clipper csui-left">
+                        <div class="csui-circle"></div>
+                    </div>
+                    <div class="csui-gap-patch">
+                        <div class="csui-circle"></div>
+                    </div>
+                    <div class="csui-circle-clipper csui-right">
+                        <div class="csui-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sample">
+            <strong class="sample-title">Small</strong>
+            <div class="csui-progress-circular csui-active csui-small">
+                <div class="csui-spinner-layer">
+                    <div class="csui-circle-clipper csui-left">
+                        <div class="csui-circle"></div>
+                    </div>
+                    <div class="csui-gap-patch">
+                        <div class="csui-circle"></div>
+                    </div>
+                    <div class="csui-circle-clipper csui-right">
+                        <div class="csui-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sample">
+            <strong class="sample-title">Big</strong>
+            <div class="csui-progress-circular csui-active csui-big">
+                <div class="csui-spinner-layer">
+                    <div class="csui-circle-clipper csui-left">
+                        <div class="csui-circle"></div>
+                    </div>
+                    <div class="csui-gap-patch">
+                        <div class="csui-circle"></div>
+                    </div>
+                    <div class="csui-circle-clipper csui-right">
+                        <div class="csui-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
