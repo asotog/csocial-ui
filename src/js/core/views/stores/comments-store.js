@@ -9,7 +9,8 @@ export const defaultState = {
         pageSize: 0,
         pageNumber: 0,
         comments: [],
-        isRequesting: false
+        isRequesting: false, // comments are being retrieved
+        isPosting: false // comment is being posted
     }
 };
 

@@ -12,6 +12,10 @@ if (!window.Promise) {
  */
 const Tools = {
 
+    isEmptyString(string) {
+        return string.trim() === '';
+    },
+    
     /**
      * Dispatches custom event on DOMElement
      * 

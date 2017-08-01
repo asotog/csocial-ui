@@ -29,8 +29,8 @@ class CommentsWidgetContainer extends Component {
                         <Comment key={comment._id} comment={comment} onDeleteHandler={_ => this.onDeleteComment(comment._id)}/>
                     )}
                 </div>
-                <PostCommentForm onSubmit={this.onPostComment.bind(this)}/>
-                <MainProgress show={comments.isRequesting}/>    
+                <MainProgress show={comments.isRequesting}/> 
+                <PostCommentForm onSubmit={this.onPostComment.bind(this)} isSubmitting={comments.isPosting}/>
             </div>
         );
     }
