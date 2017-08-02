@@ -33,10 +33,15 @@ function comments(state = {}, action) {
                 comments: [action.data, ...state.comments]
             }
         case Constants.Actions.REQUEST_DELETE_COMMENT:
+            const deletingItemIndex = state.comments.map(c => c._id).indexOf(action._id);
             return {
                 ...state,
-                isDeleting: true
-            }
+                comments: [
+                    ...state.comments.slice(0, deletingItemIndex), 
+                    {...state.comments[deletingItemIndex], isDeleting: true},
+                    ...state.comments.slice(deletingItemIndex + 1)
+                ]
+            };
         case Constants.Actions.RECEIVE_DELETED_COMMENT:
             const deletedItemIndex = state.comments.map(c => c._id).indexOf(action.data._id);
             return {

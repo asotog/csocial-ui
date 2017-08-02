@@ -101,7 +101,7 @@ export function postRequest() {
  */
 export function deleteComment(_id, context) {
     return function (dispatch) {
-        dispatch(deleteCommentRequest());
+        dispatch(deleteCommentRequest(_id));
         return Services.deleteComment(_id, context).then(data => {
             dispatch(receiveDeletedCommentResponse(data))
         }).catch(error => {
@@ -117,9 +117,10 @@ export function receiveDeletedCommentResponse(data) {
     }
 }
 
-export function deleteCommentRequest() {
+export function deleteCommentRequest(_id) {
     return {
-        type: Constants.Actions.REQUEST_DELETE_COMMENT
+        type: Constants.Actions.REQUEST_DELETE_COMMENT,
+        _id
     }
 }
 

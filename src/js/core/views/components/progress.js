@@ -1,6 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+export class ProgressCircular extends Component {
+    render() {
+        const {size} = this.props;
+        return (
+            <div className={`csui-progress-circular csui-active csui-${size}`}>
+                <div className="csui-spinner-layer">
+                    <div className="csui-circle-clipper csui-left">
+                        <div className="csui-circle"></div>
+                    </div>
+                    <div className="csui-gap-patch">
+                        <div className="csui-circle"></div>
+                    </div>
+                    <div className="csui-circle-clipper csui-right">
+                        <div className="csui-circle"></div>
+                    </div>
+                </div>
+            </div>
+        );
+    }
+}
+
+ProgressCircular.defaultProps = {
+    size: 'small'
+};
+
+ProgressCircular.propTypes = {
+    size: PropTypes.string
+};
+
+
 /**
  * Displays a big progress indicators
  * use case: when widget is loading the comments
@@ -12,19 +42,7 @@ export class MainProgress extends Component {
         cssClass += show ? '' : ' csui-hidden';
         return (
             <div className={cssClass}>
-                <div className="csui-progress-circular csui-active csui-big">
-                    <div className="csui-spinner-layer">
-                        <div className="csui-circle-clipper csui-left">
-                            <div className="csui-circle"></div>
-                        </div>
-                        <div className="csui-gap-patch">
-                            <div className="csui-circle"></div>
-                        </div>
-                        <div className="csui-circle-clipper csui-right">
-                            <div className="csui-circle"></div>
-                        </div>
-                    </div>
-                </div>
+                <ProgressCircular size="big"/>
             </div>
         );
     }
@@ -47,19 +65,7 @@ export class ProgressButton extends Component {
         return (
             <button onClick={onClick} type="submit"  className={cssClasses} disabled={loading}>
                 <div className="csui-button-indicator">
-                    <div className="csui-progress-circular csui-active csui-tiny">
-                        <div className="csui-spinner-layer">
-                            <div className="csui-circle-clipper csui-left">
-                                <div className="csui-circle"></div>
-                            </div>
-                            <div className="csui-gap-patch">
-                                <div className="csui-circle"></div>
-                            </div>
-                            <div className="csui-circle-clipper csui-right">
-                                <div className="csui-circle"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <ProgressCircular size="tiny"/>
                 </div>
                 Submit
             </button>

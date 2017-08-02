@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import {ProgressCircular} from './progress';
+
 /**
  * Comment
  * Displays the comment, creation datetime, user, etc...
@@ -14,10 +16,17 @@ class Comment extends Component {
         this.props.onDeleteHandler(comment._id);
     }
 
+    shouldShowProgress() {
+        const {comment} = this.props;
+        return comment.isDeleting === true;
+    }
+
     render() {
-        const {comment, onDeleteHandler} = this.props;
+        const {comment, onDeleteHandler, showProgressIndicator} = this.props;
+        let cssClasses = 'csui-comment';
+        cssClasses += this.shouldShowProgress() ? ' csui-loading': '';
         return (
-            <div className="csui-comment">
+            <div className={cssClasses}>
                 <div className="csui-comment-inner">
                     <div className="csui-comment-head">
                         <span className="csui-comment-head-portrait">
@@ -38,6 +47,9 @@ class Comment extends Component {
                     </ul>
                 </div>
                 <div className="csui-comment-children"></div>
+                <div className="csui-comment-progress">
+                    <ProgressCircular/>
+                </div>
             </div>
         );
     }
@@ -45,7 +57,7 @@ class Comment extends Component {
 
 Comment.propTypes = {
     comment: PropTypes.object.isRequired,
-    onDeleteHandler: PropTypes.func.isRequired
+    onDeleteHandler: PropTypes.func.isRequired,
 };
 
 export default Comment;
