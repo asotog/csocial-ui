@@ -118,3 +118,22 @@ Comment's actions: delete, reply, like, upload image
         }
     }
 }
+
+/* transition for comment on created and deleted */
+.csui-comment-transition-enter {
+    opacity: 0.01;
+}
+
+.csui-comment-transition-enter.csui-comment-transition-enter-active {
+    opacity: 1;
+    transition: opacity 600ms ease-in;
+}
+
+.csui-comment-transition-exit {
+    opacity: 1;
+}
+
+.csui-comment-transition-exit.csui-comment-transition-exit-active {
+    opacity: 0.01;
+    transition: opacity 600ms ease-in;
+}

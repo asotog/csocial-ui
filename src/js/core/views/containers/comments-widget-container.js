@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 import * as CommentsActions from '../actions/comments-actions';
 import Comment from '../components/comment';
 import PostCommentForm from '../components/post-comment-form';
@@ -25,9 +27,13 @@ class CommentsWidgetContainer extends Component {
                 {this.renderCommentsTitle()}
                 
                 <div className="csui-comments-list">
+                    <TransitionGroup>
                     {comments.comments.map(comment => 
-                        <Comment key={comment._id} comment={comment} onDeleteHandler={_ => this.onDeleteComment(comment._id)}/>
+                        <CSSTransition key={comment._id} classNames="csui-comment-transition" timeout={600}>
+                            <Comment comment={comment} onDeleteHandler={_ => this.onDeleteComment(comment._id)}/>
+                        </CSSTransition>
                     )}
+                    </TransitionGroup>
                 </div>
                 <MainProgress show={comments.isRequesting}/> 
                 <PostCommentForm onSubmit={this.onPostComment.bind(this)} isSubmitting={comments.isPosting}/>
