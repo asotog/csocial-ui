@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Experimental ui/client for crafter social (commenting, likes, replies, etc) using React, latest js specs and more",
   "scripts": {
-    "start": "webpack-dev-server --port 9000 --host 0.0.0.0;"
+    "start": "webpack-dev-server --port 9000 --host 0.0.0.0;",
+    "build-prod": "rimraf \"build\" && webpack --config \"webpack-prod.config.js\" --progress",
+    "start-prod": "webpack-dev-server --config \"webpack-prod.config.js\" --port 9000 --host 0.0.0.0;"
   },
   "keywords": [
     "crafter",
