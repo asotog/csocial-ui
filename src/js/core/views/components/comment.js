@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {ProgressCircular} from './progress';
+import {default as Cfg} from '../../../utils/configuration';
+import * as Constants from '../../../utils/constants';
 
 /**
  * Comment
@@ -22,7 +24,7 @@ class Comment extends Component {
     }
 
     render() {
-        const {comment, onDeleteHandler, showProgressIndicator} = this.props;
+        const {comment, onDeleteHandler, showProgressIndicator, context} = this.props;
         let cssClasses = 'csui-comment';
         cssClasses += this.shouldShowProgress() ? ' csui-loading': '';
         return (
@@ -30,7 +32,7 @@ class Comment extends Component {
                 <div className="csui-comment-inner">
                     <div className="csui-comment-head">
                         <span className="csui-comment-head-portrait">
-                            <img src="https://dummyimage.com/200x200/c7c7c7/000000" alt="Nelson Gregory"/>
+                            <img src={Cfg.getAPIUrl(Constants.API.avatar, {id: comment.user.id, context, ts: new Date().getTime()})} alt="Avatar"/>
                         </span>
                         <span className="csui-comment-author">{comment.user.attributes.displayName ? comment.user.attributes.displayName : 'Anonymous'}</span>
                         <span className="csui-comment-datetime">{comment.createdDate}</span>
@@ -57,6 +59,7 @@ class Comment extends Component {
 
 Comment.propTypes = {
     comment: PropTypes.object.isRequired,
+    context: PropTypes.string.isRequired,
     onDeleteHandler: PropTypes.func.isRequired,
 };
 

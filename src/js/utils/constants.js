@@ -27,6 +27,7 @@ export const HTTP_POST_OPTIONS = {
  * API endpoints
  */
 export const API = {
+    avatar: 'profile/avatar/{id}?context={context}&ts{ts}',
     getComments: 'threads/{target}/comments?context={context}&sortBy={sortBy}&sortOrder={sortOrder}',
     postComment: 'comments/?context={context}',
     deleteComment: 'comments/{_id}/moderate/?context={context}'

@@ -21,7 +21,7 @@ class CommentsWidgetContainer extends Component {
     }
 
     render() {
-        const {comments} = this.props;
+        const {comments, configuration} = this.props;
         return (
             <div className="csui-comments-widget">
                 {this.renderCommentsTitle()}
@@ -30,7 +30,9 @@ class CommentsWidgetContainer extends Component {
                     <TransitionGroup>
                     {comments.comments.map(comment => 
                         <CSSTransition key={comment._id} classNames="csui-comment-transition" timeout={600}>
-                            <Comment comment={comment} onDeleteHandler={_ => this.onDeleteComment(comment._id)}/>
+                            <Comment comment={comment}
+                                onDeleteHandler={_ => this.onDeleteComment(comment._id)}
+                                context={configuration.context}/>
                         </CSSTransition>
                     )}
                     </TransitionGroup>
