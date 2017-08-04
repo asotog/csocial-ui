@@ -6,3 +6,9 @@
         display: block;
     }
 }
+
+@mixin respond-to-phone() {
+    @media only screen and (max-width: 767px) {
+        @content;
+    }
+}

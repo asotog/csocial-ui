@@ -1,9 +1,11 @@
 
 @import "variables";
 @import "mixins";
+@import "modules/modal";
 
 .csui {
     @import "modules/normalize";
+    @import "modules/form";
     @import "modules/button";
     @import "modules/comment";
     @import "modules/post-comment-form";

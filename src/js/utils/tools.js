@@ -23,7 +23,7 @@ const Tools = {
      * @param {String} eventName 
      * @param {Object} data 
      */
-    triggerEvent(element, eventName, data) {
+    triggerEvent(element, eventName, data = {}) {
         var event = null;
         try {
             event = new CustomEvent(eventName, {

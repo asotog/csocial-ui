@@ -4,31 +4,44 @@ import Configuration from '../utils/configuration';
 import {Logger} from '../utils/logger';
 import Services from '../utils/services';
 import {CommentsWidget} from './views/comments-widget';
+import {Login} from './views/login';
+
+let _profile = null; // contains session user information
 
 /**
  * Responsible of initializing the widgets, this component is the bootstrapper
  * this is exposed via crafter.social to global scope
  * so window.crafter.social and Director are the same
  */
+
 const Director = {
+    /**
+     * Sets the current logged user 
+     */
+    setProfile(profile) {
+        _profile = profile;
+    },
 
     /**
      * Returns the current logged user stored
      * @return {null|Object} returns null if user not logged yet, otherwise user object
      */
     getProfile() {
-        return null;
+        if (!_profile) {
+            Logger.error('There is no profile information, please try reloading page or login')
+            return null;
+        }
+        return _profile;
     },
 
     /**
-     * Autheticates/logins agains the API with given username/password
-     * @param {*} username 
-     * @param {*} password 
+     * Shows login modal
+     * Login modal is useful while development when multiple users needs to be tested, 
+     * modal form contains user/password fields
+     * 
      */
-    authenticate(username, password) {
-        Services.authenticate(username, password)
-            .then(_ => Tools.triggerEvent(document, Constants.EVENT_CRAFTER_SOCIAL_AUTHENTICATION_SUCCESS, {}))
-            .catch(error => Logger.error('User authentication failed.'))
+    login() {
+        Login.init();
     },
 
     /**
@@ -38,7 +51,7 @@ const Director = {
      */
     checkAuthentication() {
         Services.checkAuthentication()
-            .then(_ => Tools.triggerEvent(document, Constants.EVENT_CRAFTER_SOCIAL_AUTHENTICATION_SUCCESS, {}))
+            .then(profile => Tools.triggerEvent(document, Constants.EVENT_CRAFTER_SOCIAL_AUTHENTICATION_SUCCESS, profile))
             .catch(error => Logger.error('User authentication failed.'))
     },
 
