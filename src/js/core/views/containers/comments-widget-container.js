@@ -8,6 +8,7 @@ import * as CommentsActions from '../actions/comments-actions';
 import Comment from '../components/comment';
 import PostCommentForm from '../components/post-comment-form';
 import {MainProgress} from '../components/progress';
+import ErrorMessage from '../components/error-message';
 
 class CommentsWidgetContainer extends Component {
 
@@ -39,6 +40,7 @@ class CommentsWidgetContainer extends Component {
                 </div>
                 <MainProgress show={comments.isRequesting}/> 
                 <PostCommentForm onSubmit={this.onPostComment.bind(this)} isSubmitting={comments.isPosting}/>
+                <ErrorMessage show={!!comments.postCommentError} errorProvider={comments.postCommentError} message="There was a problem please try again or reload page"/>
             </div>
         );
     }

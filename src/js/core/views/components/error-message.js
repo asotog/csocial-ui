@@ -36,6 +36,8 @@ class ErrorMessage extends Component {
         switch(errorNumber) {
             case 401:
                 return authenticationFailedMessage;
+            case 403:
+                return authenticationFailedMessage;
         }
         return message;
     }

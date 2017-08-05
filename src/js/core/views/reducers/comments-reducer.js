@@ -32,6 +32,12 @@ function comments(state = {}, action) {
                 isPosting: false,
                 comments: [action.data, ...state.comments]
             }
+        case Constants.Actions.POST_COMMENT_DATA_ERROR:
+            return {
+                 ...state,
+                isPosting: false,
+                postCommentError: action.error
+            }
         case Constants.Actions.REQUEST_DELETE_COMMENT:
             const deletingItemIndex = state.comments.map(c => c._id).indexOf(action._id);
             return {
