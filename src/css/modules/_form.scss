@@ -11,8 +11,10 @@ input{
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+textarea {
     &.csui-form-control {
+        border: 1px solid $form-control-border-color;
         padding: 10px 5px;
     }
 }

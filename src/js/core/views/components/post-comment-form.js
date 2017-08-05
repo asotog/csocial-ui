@@ -28,7 +28,7 @@ class PostCommentForm extends Component {
         return (
             <div className="csui-post-comment-form">
                 <form onSubmit={this.onSubmitHandler.bind(this)}>
-                    <textarea ref={ref => this.commentInput = ref} cols="30" rows="5" placeholder="Put your comment here..."></textarea>
+                    <textarea className="csui-form-control" ref={ref => this.commentInput = ref} cols="30" rows="5" placeholder="Put your comment here..."></textarea>
                     <ProgressButton loading={isSubmitting}/>
                 </form>
             </div>
