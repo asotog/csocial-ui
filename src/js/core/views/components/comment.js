@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import {ProgressCircular} from './progress';
 import ErrorMessage from './error-message';
+import DateTimeDisplay from './datetime-display';
 import {default as Cfg} from '../../../utils/configuration';
 import * as Constants from '../../../utils/constants';
 import {strings} from '../../../utils/localization';
@@ -37,7 +38,7 @@ class Comment extends Component {
                             <img src={Cfg.getAPIUrl(Constants.API.avatar, {id: comment.user.id, context, ts: new Date().getTime()})} alt="Avatar"/>
                         </span>
                         <span className="csui-comment-author">{comment.user.attributes.displayName ? comment.user.attributes.displayName : 'Anonymous'}</span>
-                        <span className="csui-comment-datetime">{comment.createdDate}</span>
+                        <span className="csui-comment-datetime"><DateTimeDisplay datetime={comment.createdDate}/></span>
                     </div>
                     <div className="csui-comment-body" dangerouslySetInnerHTML={{__html: comment.body}}></div>
                     

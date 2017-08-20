@@ -33,7 +33,9 @@
                 en: {
                     buttonPostComment: 'Post Comment'
                 }
-            }
+            },
+            //'dateFormat': 'MMMM DD, YYYY' // momentjs formatting or value 'relative' so it displays 1 minute ago, 1 hour ago etc
+            'dateFormat': 'relative' // momentjs formatting or value 'relative' so it displays 1 minute ago, 1 hour ago etc
         };
         /* listen event to be notified once is loaded and ready to be used */
         document.addEventListener('crafter.social.ready', function(e) {
