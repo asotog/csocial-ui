@@ -39,7 +39,9 @@ class CommentsWidgetContainer extends Component {
                     </TransitionGroup>
                 </div>
                 <MainProgress show={comments.isRequesting}/> 
-                <PostCommentForm onSubmit={this.onPostComment.bind(this)} isSubmitting={comments.isPosting}/>
+                <div hidden={comments.isRequesting}>
+                    <PostCommentForm onSubmit={this.onPostComment.bind(this)} isSubmitting={comments.isPosting}/>
+                </div>
                 <ErrorMessage show={!!comments.postCommentError} errorProvider={comments.postCommentError} message="There was a problem please try again or reload page"/>
             </div>
         );

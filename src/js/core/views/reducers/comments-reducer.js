@@ -24,7 +24,8 @@ function comments(state = {}, action) {
         case Constants.Actions.REQUEST_POST_COMMENT:
             return {
                 ...state,
-                isPosting: true
+                isPosting: true,
+                postCommentError: null
             }
         case Constants.Actions.RECEIVE_POST_COMMENT:
             return {
