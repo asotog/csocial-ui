@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import {ProgressCircular} from './progress';
+import ErrorMessage from './error-message';
 import {default as Cfg} from '../../../utils/configuration';
 import * as Constants from '../../../utils/constants';
 
@@ -52,6 +53,7 @@ class Comment extends Component {
                 <div className="csui-comment-progress">
                     <ProgressCircular/>
                 </div>
+                <ErrorMessage show={!!comment.error} errorProvider={comment.error} message="There was a problem please try again or reload page"/>
             </div>
         );
     }

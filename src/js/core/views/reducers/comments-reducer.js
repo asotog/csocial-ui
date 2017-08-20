@@ -45,7 +45,7 @@ function comments(state = {}, action) {
                 ...state,
                 comments: [
                     ...state.comments.slice(0, deletingItemIndex), 
-                    {...state.comments[deletingItemIndex], isDeleting: true},
+                    {...state.comments[deletingItemIndex], isDeleting: true, error: null},
                     ...state.comments.slice(deletingItemIndex + 1)
                 ]
             };
@@ -59,6 +59,16 @@ function comments(state = {}, action) {
                     ...state.comments.slice(deletedItemIndex + 1)
                 ]
             }
+        case Constants.Actions.DELETE_COMMENT_DATA_ERROR:
+            const deletingItemErrorIndex = state.comments.map(c => c._id).indexOf(action.error.commentId);
+            return {
+                ...state,
+                comments: [
+                    ...state.comments.slice(0, deletingItemErrorIndex), 
+                    {...state.comments[deletingItemErrorIndex], isDeleting: false, error: action.error},
+                    ...state.comments.slice(deletingItemErrorIndex + 1)
+                ]
+            };
     }
     return state;
 }

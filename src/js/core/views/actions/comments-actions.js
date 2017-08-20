@@ -105,6 +105,7 @@ export function deleteComment(_id, context) {
         return Services.deleteComment(_id, context).then(data => {
             dispatch(receiveDeletedCommentResponse(data))
         }).catch(error => {
+            error.commentId = _id;
             dispatch(receiveError(Constants.Actions.DELETE_COMMENT_DATA_ERROR, error));
         });
     }
