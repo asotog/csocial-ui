@@ -5,6 +5,7 @@ import {ProgressCircular} from './progress';
 import ErrorMessage from './error-message';
 import {default as Cfg} from '../../../utils/configuration';
 import * as Constants from '../../../utils/constants';
+import {strings} from '../../../utils/localization';
 
 /**
  * Comment
@@ -41,7 +42,7 @@ class Comment extends Component {
                     <div className="csui-comment-body" dangerouslySetInnerHTML={{__html: comment.body}}></div>
                     
                     <ul className="csui-comment-actions csui-left">
-                        <li><a href="#">Upload a Photo</a></li>
+                        <li><a href="#">{strings.buttonUploadPhoto}</a></li>
                     </ul>
                     <ul className="csui-comment-actions csui-right">
                         <li><a href="#">Like</a></li>
@@ -53,7 +54,10 @@ class Comment extends Component {
                 <div className="csui-comment-progress">
                     <ProgressCircular/>
                 </div>
-                <ErrorMessage show={!!comment.error} errorProvider={comment.error} message="There was a problem please try again or reload page"/>
+                <ErrorMessage show={!!comment.error}
+                    errorProvider={comment.error}
+                    authenticationFailedMessage={strings.errorAuthenticationFailed}
+                    message={strings.errorDefault}/>
             </div>
         );
     }

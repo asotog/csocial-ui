@@ -28,7 +28,12 @@
         var crafterSocial_cfg = {
             'url.service.api': 'http://localhost:8080/crafter-social/api/3/',
             'url.security.login': 'http://localhost:8080/crafter-social/crafter-security-login',
-            'url.security.active': 'http://localhost:8080/crafter-social/crafter-security-current-auth'
+            'url.security.active': 'http://localhost:8080/crafter-social/crafter-security-current-auth',
+            'localization.strings': { // Localized strings, will be merged with default values
+                en: {
+                    buttonPostComment: 'Post Comment'
+                }
+            }
         };
         /* listen event to be notified once is loaded and ready to be used */
         document.addEventListener('crafter.social.ready', function(e) {

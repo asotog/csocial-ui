@@ -9,6 +9,7 @@ import Comment from '../components/comment';
 import PostCommentForm from '../components/post-comment-form';
 import {MainProgress} from '../components/progress';
 import ErrorMessage from '../components/error-message';
+import {strings} from '../../../utils/localization';
 
 class CommentsWidgetContainer extends Component {
 
@@ -42,7 +43,10 @@ class CommentsWidgetContainer extends Component {
                 <div hidden={comments.isRequesting}>
                     <PostCommentForm onSubmit={this.onPostComment.bind(this)} isSubmitting={comments.isPosting}/>
                 </div>
-                <ErrorMessage show={!!comments.postCommentError} errorProvider={comments.postCommentError} message="There was a problem please try again or reload page"/>
+                <ErrorMessage show={!!comments.postCommentError} 
+                    errorProvider={comments.postCommentError}
+                    authenticationFailedMessage={strings.errorAuthenticationFailed}
+                    message={strings.errorDefault}/>
             </div>
         );
     }
@@ -53,9 +57,9 @@ class CommentsWidgetContainer extends Component {
             return null;
         }
 
-        let title = 'Be the first commenting here...';
+        let title = strings.noCommentsMessage;
         if (comments.comments.length > 0) {
-            title = `Comments (${comments.comments.length})`;
+            title = strings.formatString(strings.commentsMessage, comments.comments.length);
         }
         return (
             <span className="csui-comments-title">{title}</span>

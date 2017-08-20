@@ -67,7 +67,7 @@ export class ProgressButton extends Component {
                 <div className="csui-button-indicator">
                     <ProgressCircular size="tiny"/>
                 </div>
-                Submit
+                {buttonText}
             </button>
         );
     }

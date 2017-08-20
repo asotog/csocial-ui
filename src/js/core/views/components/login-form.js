@@ -8,6 +8,7 @@ import Tools from '../../../utils/tools';
 import {Logger} from '../../../utils/logger';
 import ErrorMessage from './error-message';
 import {ProgressButton} from './progress';
+import {strings} from '../../../utils/localization';
 
 /**
  * Displays form, so user can log in manually by entering user/password
@@ -78,13 +79,22 @@ class LoginForm extends Component {
                     shouldCloseOnOverlayClick={true}>
                     <form onSubmit={this.onSubmit.bind(this)}>
                         <div className="csui-form-group">
-                            <input ref="usernameInput" className="csui-form-control" type="text" placeholder="Username"/>
+                            <input ref="usernameInput"
+                                className="csui-form-control"
+                                type="text"
+                                placeholder={strings.loginUsernameFieldPlaceholder}/>
                         </div>
                         <div className="csui-form-group">
-                            <input ref="passwordInput" className="csui-form-control" type="password" placeholder="Password"/>
+                            <input ref="passwordInput"
+                                className="csui-form-control"
+                                type="password"
+                                placeholder={strings.loginPasswordFieldPlaceholder}/>
                         </div>
-                        <ErrorMessage show={!!error} errorProvider={error} message="There was a problem please try again or reload page"/>
-                        <ProgressButton buttonText="Login" loading={submitting}/>
+                        <ErrorMessage show={!!error}
+                            errorProvider={error}
+                            authenticationFailedMessage={strings.errorAuthenticationFailed}
+                            message={strings.errorDefault}/>
+                        <ProgressButton buttonText={strings.loginButton} loading={submitting}/>
                     </form>
                 </Modal>
             </div>

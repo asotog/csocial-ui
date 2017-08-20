@@ -40,10 +40,12 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
+    "deepmerge": "^1.5.1",
     "promise-polyfill": "^6.0.2",
     "query-string": "^4.3.4",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
+    "react-localization": "^0.1.1",
     "react-modal": "^2.2.2",
     "react-redux": "^5.0.5",
     "react-transition-group": "^2.2.0",
