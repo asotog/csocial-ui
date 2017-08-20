@@ -7,7 +7,7 @@ import DateTimeDisplay from './datetime-display';
 import {default as Cfg} from '../../../utils/configuration';
 import * as Constants from '../../../utils/constants';
 import {strings} from '../../../utils/localization';
-
+import Director from '../../director';
 /**
  * Comment
  * Displays the comment, creation datetime, user, etc...
@@ -24,6 +24,15 @@ class Comment extends Component {
     shouldShowProgress() {
         const {comment} = this.props;
         return comment.isDeleting === true;
+    }
+
+    /**
+     * Checks if logged user is the same comment creator user
+     * useful so delete button can be displayed or not
+     */
+    isCurrentUserOwner() {
+        const {comment} = this.props;
+        return Director.getProfile().id === comment.createdBy;
     }
 
     render() {
@@ -48,7 +57,8 @@ class Comment extends Component {
                     <ul className="csui-comment-actions csui-right">
                         <li><a href="#">Like</a></li>
                         <li><a href="#">Reply</a></li>
-                        <li><a href="#" onClick={this.onDeleteClick.bind(this)}>Delete</a></li>
+                        {this.isCurrentUserOwner() ? 
+                            <li><a href="#" onClick={this.onDeleteClick.bind(this)}>Delete</a></li> : null}
                     </ul>
                 </div>
                 <div className="csui-comment-children"></div>
