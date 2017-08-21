@@ -31,4 +31,34 @@
     [hidden] {
         display: none !important;
     }
+    .csui-avatar {
+        border-radius: 50%;
+        display: inline-block;
+        height: $avatar-height;
+        position: relative;
+        width: $avatar-height;
+        &.csui-avatar-bg-1 {
+            background: #ff9f9f;
+        }
+        &.csui-avatar-bg-2 {
+            background: #abe8b6;
+        }
+        &.csui-avatar-bg-3 {
+            background: #9ae0ff;
+        }
+        &.csui-avatar-bg-4 {
+            background: #f7c5ff;
+        }
+        &.csui-avatar-bg-5 {
+            background: #ff8057;
+        }
+        .csui-avatar-characters {
+            color: #FFF;
+            font-size: 12px;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
 }
