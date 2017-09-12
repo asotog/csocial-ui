@@ -28,7 +28,7 @@ class CommentsWidgetContainer extends Component {
             <div className="csui-comments-widget">
                 {this.renderCommentsTitle()}
                 
-                <div className="csui-comments-list">
+                <div className="csui-comments-list" hidden={comments.isRequesting}>
                     <TransitionGroup>
                     {comments.comments.map(comment => 
                         <CSSTransition key={comment._id} classNames="csui-comment-transition" timeout={600}>
