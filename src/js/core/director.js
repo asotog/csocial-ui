@@ -62,9 +62,15 @@ const Director = {
     comments: {
         init: function(cfg = {}) {
             Tools.querySelector(cfg.target).then(element => {
-                Logger.info(`loading comments for target ${cfg.target}`);
+                if (element.classList.contains('csui-commentable-loaded')) {
+                    Logger.info(`Comments for ${cfg.target} already initialized previously so will just reload them`);
+                    Tools.triggerEvent(element, Constants.EVENT_CRAFTER_SOCIAL_RELOAD_WIDGET);
+                    return;
+                }
+                Logger.info(`Initializing comments for target ${cfg.target}`);
                 const rootElement = Tools.createCommentsWidgetWrapper(element).querySelector('.csui-comments-widget-root');
                 CommentsWidget.init(rootElement, cfg);
+                element.classList.add('csui-commentable-loaded');
             }).catch(error => {
                 Logger.error(`Comments initializing failed on target ${cfg.target}.`, error);
             });

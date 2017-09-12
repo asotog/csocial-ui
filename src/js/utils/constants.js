@@ -1,7 +1,7 @@
 export const EVENT_CRAFTER_SOCIAL_READY = 'crafter.social.ready';
 export const EVENT_CRAFTER_SOCIAL_AUTHENTICATION_SUCCESS = 'crafter.social.authentication.success';
 export const EVENT_CRAFTER_SOCIAL_SHOW_LOGIN = 'crafter.social.authentication.show.login';
-
+export const EVENT_CRAFTER_SOCIAL_RELOAD_WIDGET = 'crafter.social.reload.widget';
 /**
  * Fetch API GET defaults options
  */
