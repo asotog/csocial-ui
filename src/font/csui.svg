@@ -1,0 +1,22 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2017 by original authors @ fontello.com</metadata>
+<defs>
+<font id="csui" horiz-adv-x="1000" >
+<font-face font-family="csui" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="heart-filled" unicode="&#xe800;" d="M456 487q0 95-67 161t-161 67-162-67-66-161q0-137 91-229 37-36 128-104t164-118l73-50q282 190 364 272 91 92 91 229 0 95-66 161t-161 67-161-67-67-161z" horiz-adv-x="911" />
+
+<glyph glyph-name="upload-cloud" unicode="&#xe801;" d="M781 506q108 0 184-76t76-184-76-184-184-77l-208 0 0 239 67-66q16-17 38-17 20 0 36 17 15 15 15 36t-15 36l-156 156q-14 14-37 15t-37-15l-156-156q-15-15-15-36t15-36q16-17 37-17 20 0 36 17l68 66 0-239-260 0q-86 0-148 61t-61 148q0 72 44 128t112 73l0 8q0 130 92 221t221 91q100 0 180-58t114-152q2 0 8 1t10 0z" horiz-adv-x="1041" />
+
+<glyph glyph-name="trash-empty" unicode="&#xe802;" d="M286 439v-321q0-8-5-13t-13-5h-36q-8 0-13 5t-5 13v321q0 8 5 13t13 5h36q8 0 13-5t5-13z m143 0v-321q0-8-5-13t-13-5h-36q-8 0-13 5t-5 13v321q0 8 5 13t13 5h36q8 0 13-5t5-13z m142 0v-321q0-8-5-13t-12-5h-36q-8 0-13 5t-5 13v321q0 8 5 13t13 5h36q7 0 12-5t5-13z m72-404v529h-500v-529q0-12 4-22t8-15 6-5h464q2 0 6 5t8 15 4 22z m-375 601h250l-27 65q-4 5-9 6h-177q-6-1-10-6z m518-18v-36q0-8-5-13t-13-5h-54v-529q0-46-26-80t-63-34h-464q-37 0-63 33t-27 79v531h-53q-8 0-13 5t-5 13v36q0 8 5 13t13 5h172l39 93q9 21 31 35t44 15h178q23 0 44-15t30-35l39-93h173q8 0 13-5t5-13z" horiz-adv-x="785.7" />
+
+<glyph glyph-name="reply" unicode="&#xe803;" d="M365 702q20 0 36-16t15-36l0-133q178-20 298-153t120-313l0-53q-80 122-183 163t-235 46l0-130q0-21-15-37t-36-15q-22 0-37 15l-328 323 328 324q15 15 37 15z" horiz-adv-x="834" />
+
+<glyph glyph-name="up-open" unicode="&#xe804;" d="M564 280q16-16 16-41t-16-41q-38-38-78 0l-196 188-196-188q-40-38-78 0-16 16-16 41t16 41l234 224q16 16 40 16t40-16z" horiz-adv-x="580" />
+
+<glyph glyph-name="down-open" unicode="&#xe805;" d="M564 422l-234-224q-18-18-40-18t-40 18l-234 224q-16 16-16 41t16 41q38 38 78 0l196-188 196 188q40 38 78 0 16-16 16-41t-16-41z" horiz-adv-x="580" />
+</font>
+</defs>
+</svg>

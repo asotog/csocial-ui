@@ -61,11 +61,11 @@ module.exports = {
             ],
             options: {}
         }, {
-            test: /fontello\.(eot|svg|ttf|woff|woff2)$/,
+            test: /csui\.(eot|svg|ttf|woff|woff2)$/,
             loader: 'file-loader',
             options: {
                 publicPath: './',
-                name: 'fonts/icons/[name].[ext]'
+                name: 'font/[name].[ext]'
             }
         }]
     },

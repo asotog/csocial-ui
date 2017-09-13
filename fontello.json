@@ -1,0 +1,46 @@
+{
+  "name": "csui",
+  "css_prefix_text": "csui-icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "hi76m8qggwn5lbl286oeqp64q0n8kusy",
+      "css": "heart-filled",
+      "code": 59392,
+      "src": "typicons"
+    },
+    {
+      "uid": "4e77fc7fc71e69ba520ffa3b4d898e55",
+      "css": "upload-cloud",
+      "code": 59393,
+      "src": "typicons"
+    },
+    {
+      "uid": "f48ae54adfb27d8ada53d0fd9e34ee10",
+      "css": "trash-empty",
+      "code": 59394,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "28r0xthd180mg0wnfh8ek3mtn761hs11",
+      "css": "reply",
+      "code": 59395,
+      "src": "typicons"
+    },
+    {
+      "uid": "9c7ff134960bb5a82404e4aeaab366d9",
+      "css": "up-open",
+      "code": 59396,
+      "src": "entypo"
+    },
+    {
+      "uid": "8704cd847a47b64265b8bb110c8b4d62",
+      "css": "down-open",
+      "code": 59397,
+      "src": "entypo"
+    }
+  ]
+}

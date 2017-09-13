@@ -70,8 +70,8 @@ class Comment extends Component {
             ts: Tools.getPageTimestamp()
         };
         const authorName = user.attributes.displayName ?user.attributes.displayName : 'Anonymous';
-        const voteUpCSS = comment.votesUp.includes(Director.getProfile().id) ? 'csui-vote-up csui-voted' : 'csui-vote-up';
-        const voteDownCSS = comment.votesDown.includes(Director.getProfile().id) ? 'csui-vote-down csui-voted' : 'csui-vote-down';
+        const voteUpCSS = comment.votesUp.includes(Director.getProfile().id) ? 'csui-vote-up csui-voted csui-icon-up-open' : 'csui-vote-up csui-icon-up-open';
+        const voteDownCSS = comment.votesDown.includes(Director.getProfile().id) ? 'csui-vote-down csui-voted csui-icon-down-open' : 'csui-vote-down csui-icon-down-open';
         const voteUpDisplay = comment.votesUp.length ? comment.votesUp.length : '';
         const voteDownDisplay = comment.votesDown.length ? comment.votesDown.length : '';
         return (
@@ -95,9 +95,9 @@ class Comment extends Component {
                     <ul className="csui-comment-actions csui-right">
                         <li><a href="#" className={voteUpCSS} onClick={this.onVoteUp.bind(this)}>{voteUpDisplay}</a></li>
                         <li><a href="#" className={voteDownCSS} onClick={this.onVoteDown.bind(this)}>{voteDownDisplay}</a></li>
-                        {/* <li><a href="#">Reply</a></li> */}
+                        {/*<li><a className="csui-icon-reply" href="#"></a></li> */}
                         {this.isCurrentUserOwner() ? 
-                            <li><a href="#" onClick={this.onDeleteClick.bind(this)}>Delete</a></li> : null}
+                            <li><a className="csui-icon-trash-empty" href="#" onClick={this.onDeleteClick.bind(this)}></a></li> : null}
                     </ul>
                 </div>
                 <div className="csui-comment-children"></div>

@@ -31,7 +31,7 @@ Progress Button
  */
 .csui-button-progress {
     position: relative;
-    transition: .8s padding-left;
+    transition: .8s padding-left, .8s background;
     .csui-button-indicator {
         display: inline-block;
         left: 10px;

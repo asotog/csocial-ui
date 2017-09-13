@@ -112,25 +112,16 @@ Comment's actions: delete, reply, like, upload image
     a {
         color: $comment-actions-text-color;
         font-size: 12px;
+        padding: 0 5px;
         text-decoration: none;
         &:hover {
             color: $link-color-hover;
         }
     }
-
-    .csui-vote-up {
-        &:after {
-            content: ' vote up';
-        }
-    }
-    .csui-vote-down {
-        &:after {
-            content: ' vote down';
-        }
-    }
     .csui-vote-up.csui-voted,
     .csui-vote-down.csui-voted {
         font-weight: bold;
+        color: $comment-voted-color;
     }
 }
 
