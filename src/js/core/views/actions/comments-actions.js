@@ -125,6 +125,45 @@ export function deleteCommentRequest(_id) {
     }
 }
 
+/**
+ * Vote Comment Action
+ * 
+ * @param {*} _id Comment id
+ * @param {*} context Context 
+ * @param {integer} direction Means -1 votes down, 0 votes neutral (removes vote), 1 vote up
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+export function voteComment(_id, context, direction = 0) {
+    return function (dispatch) {
+        dispatch(voteCommentRequest(_id));
+        return Services.voteComment(_id, context, direction).then(data => {
+            dispatch(receiveVotedCommentResponse(data))
+        }).catch(error => {
+            error.commentId = _id;
+            dispatch(receiveError(Constants.Actions.VOTE_COMMENT_DATA_ERROR, error));
+        });
+    }
+}
+
+export function voteCommentRequest(_id) {
+    return {
+        type: Constants.Actions.REQUEST_VOTE_COMMENT,
+        _id
+    }
+}
+
+export function receiveVotedCommentResponse(data) {
+    return {
+        type: Constants.Actions.RECEIVE_VOTED_COMMENT,
+        data
+    }
+}
 
 /**
  * Generic error handling action

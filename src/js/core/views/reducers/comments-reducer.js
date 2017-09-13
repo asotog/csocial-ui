@@ -69,6 +69,37 @@ function comments(state = {}, action) {
                     ...state.comments.slice(deletingItemErrorIndex + 1)
                 ]
             };
+        case Constants.Actions.REQUEST_VOTE_COMMENT:
+            const votingItemIndex = state.comments.map(c => c._id).indexOf(action._id);
+            return {
+                ...state,
+                comments: [
+                    ...state.comments.slice(0, votingItemIndex), 
+                    {...state.comments[votingItemIndex], isVoting: true, error: null},
+                    ...state.comments.slice(votingItemIndex + 1)
+                ]
+            };
+        case Constants.Actions.RECEIVE_VOTED_COMMENT:
+            const votedItemIndex = state.comments.map(c => c._id).indexOf(action.data._id);
+            return {
+                ...state,
+                isVoting: false,
+                comments: [
+                    ...state.comments.slice(0, votedItemIndex),
+                    action.data,
+                    ...state.comments.slice(votedItemIndex + 1)
+                ]
+            }
+        case Constants.Actions.VOTE_COMMENT_DATA_ERROR:
+            const votingItemErrorIndex = state.comments.map(c => c._id).indexOf(action.error.commentId);
+            return {
+                ...state,
+                comments: [
+                    ...state.comments.slice(0, votingItemErrorIndex), 
+                    {...state.comments[votingItemErrorIndex], isVoting: false, error: action.error},
+                    ...state.comments.slice(votingItemErrorIndex + 1)
+                ]
+            };
     }
     return state;
 }

@@ -93,6 +93,34 @@ const Services = {
         })
             .then(handleResponse)
             .catch(error => Promise.reject(error));
+    },
+    
+    /**
+     * Vote a comment down or up
+     * 
+     * @param {string} _id 
+     * @param {string} context 
+     * @param {integer} direction Means -1 votes down, 0 votes neutral (removes vote), 1 vote up
+     */
+    voteComment(_id, context, direction = 0) {
+        var formData  = new FormData();
+        formData.append('context', context);
+        let voteURL = '';
+        switch(direction) {
+            case Constants.VOTE_UP: voteURL = Constants.API.voteUpComment; break;
+            case Constants.VOTE_DOWN: voteURL = Constants.API.voteDownComment; break;
+            default: voteURL = Constants.API.voteNeutralComment;
+        }
+        const url = Cfg.getAPIUrl(voteURL, {
+            _id,
+            context});
+        return fetch(url, {
+            ...Constants.HTTP_POST_OPTIONS,
+            headers: {},
+            body: formData // multipart data
+        })
+            .then(handleResponse)
+            .catch(error => Promise.reject(error));
     }
 }
 

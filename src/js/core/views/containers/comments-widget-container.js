@@ -34,6 +34,7 @@ class CommentsWidgetContainer extends Component {
                         <CSSTransition key={comment._id} classNames="csui-comment-transition" timeout={600}>
                             <Comment comment={comment}
                                 onDeleteHandler={_ => this.onDeleteComment(comment._id)}
+                                onVoteHandler={this.props.voteComment}
                                 context={configuration.context}/>
                         </CSSTransition>
                     )}

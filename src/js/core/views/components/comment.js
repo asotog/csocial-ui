@@ -7,6 +7,7 @@ import DateTimeDisplay from './datetime-display';
 import Avatar from './avatar';
 import {default as Cfg} from '../../../utils/configuration';
 import * as Constants from '../../../utils/constants';
+import Tools from '../../../utils/tools';
 import {strings} from '../../../utils/localization';
 import Director from '../../director';
 /**
@@ -22,9 +23,31 @@ class Comment extends Component {
         this.props.onDeleteHandler(comment._id);
     }
 
+    onVoteUp(e) {
+        e.preventDefault();
+        const {votesUp} = this.props.comment;
+        // check first if current user already voted, so neutral vote triggered instead, neutral vote removes/deselect
+        const direction = votesUp.includes(Director.getProfile().id) ? Constants.VOTE_NEUTRAL : Constants.VOTE_UP;
+        this.vote(direction);
+    }
+
+    onVoteDown(e) {
+        e.preventDefault();
+        const {votesDown} = this.props.comment;
+        // check first if current user already voted, so neutral vote triggered instead, neutral vote removes/deselect
+        const direction = votesDown.includes(Director.getProfile().id) ? Constants.VOTE_NEUTRAL : Constants.VOTE_DOWN;
+        this.vote(direction);
+    }
+
+    vote(direction = 0) {
+        const {comment, context} = this.props;
+        const userId = Director.getProfile().id;
+        this.props.onVoteHandler(comment._id, context, direction);
+    }
+
     shouldShowProgress() {
         const {comment} = this.props;
-        return comment.isDeleting === true;
+        return comment.isDeleting === true || comment.isVoting;
     }
 
     /**
@@ -44,9 +67,13 @@ class Comment extends Component {
         const profileImageParams = {
             id: user.id,
             context, 
-            ts: new Date().getTime()
+            ts: Tools.getPageTimestamp()
         };
         const authorName = user.attributes.displayName ?user.attributes.displayName : 'Anonymous';
+        const voteUpCSS = comment.votesUp.includes(Director.getProfile().id) ? 'csui-vote-up csui-voted' : 'csui-vote-up';
+        const voteDownCSS = comment.votesDown.includes(Director.getProfile().id) ? 'csui-vote-down csui-voted' : 'csui-vote-down';
+        const voteUpDisplay = comment.votesUp.length ? comment.votesUp.length : '';
+        const voteDownDisplay = comment.votesDown.length ? comment.votesDown.length : '';
         return (
             <div className={cssClasses}>
                 <div className="csui-comment-inner">
@@ -60,13 +87,15 @@ class Comment extends Component {
                         <span className="csui-comment-datetime"><DateTimeDisplay datetime={comment.createdDate}/></span>
                     </div>
                     <div className="csui-comment-body" dangerouslySetInnerHTML={{__html: comment.body}}></div>
-                    
+                    {/* TODO upload pictures/files to comments
                     <ul className="csui-comment-actions csui-left">
                         <li><a href="#">{strings.buttonUploadPhoto}</a></li>
                     </ul>
+                    */}
                     <ul className="csui-comment-actions csui-right">
-                        <li><a href="#">Like</a></li>
-                        <li><a href="#">Reply</a></li>
+                        <li><a href="#" className={voteUpCSS} onClick={this.onVoteUp.bind(this)}>{voteUpDisplay}</a></li>
+                        <li><a href="#" className={voteDownCSS} onClick={this.onVoteDown.bind(this)}>{voteDownDisplay}</a></li>
+                        {/* <li><a href="#">Reply</a></li> */}
                         {this.isCurrentUserOwner() ? 
                             <li><a href="#" onClick={this.onDeleteClick.bind(this)}>Delete</a></li> : null}
                     </ul>
@@ -88,6 +117,7 @@ Comment.propTypes = {
     comment: PropTypes.object.isRequired,
     context: PropTypes.string.isRequired,
     onDeleteHandler: PropTypes.func.isRequired,
+    onVoteHandler: PropTypes.func.isRequired
 };
 
 export default Comment;

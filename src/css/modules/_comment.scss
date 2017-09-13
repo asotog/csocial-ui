@@ -117,6 +117,21 @@ Comment's actions: delete, reply, like, upload image
             color: $link-color-hover;
         }
     }
+
+    .csui-vote-up {
+        &:after {
+            content: ' vote up';
+        }
+    }
+    .csui-vote-down {
+        &:after {
+            content: ' vote down';
+        }
+    }
+    .csui-vote-up.csui-voted,
+    .csui-vote-down.csui-voted {
+        font-weight: bold;
+    }
 }
 
 /* transition for comment on created and deleted */

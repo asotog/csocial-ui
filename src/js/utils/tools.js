@@ -5,6 +5,8 @@ if (!window.Promise) {
     window.Promise = Promise;
 }
 
+let _pageTimestamp = new Date().getTime();
+
 /**
  * 
  * General internal tools/utilities methods
@@ -86,6 +88,23 @@ const Tools = {
         wrapperElement.appendChild(commentsWidgetRootElement);
 
         return wrapperElement;
+    },
+
+    /**
+     * Returns a timestamp when page was loaded, useful to handle images cache per page load
+     * so image is not requested everytime
+     * @return {number} Unix millis date when page was loaded
+     */
+    getPageTimestamp() {
+        return _pageTimestamp;
+    },
+
+    /**
+     * If necessary timestamp can be forced to be updated with the current time
+     * so cache can be forced to refresh
+     */
+    setPageTimestamp() {
+        _pageTimestamp = new Date().getTime();
     }
 }
 
