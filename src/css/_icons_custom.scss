@@ -1,0 +1,6 @@
+/**
+Adds new custom icons classes based on fontello
+**/
+
+// "like" icon renders as a heart
+.csui-icon-like:before { content: '\e800'; } /* '' */

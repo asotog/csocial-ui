@@ -35,7 +35,8 @@ class CommentsWidgetContainer extends Component {
                             <Comment comment={comment}
                                 onDeleteHandler={_ => this.onDeleteComment(comment._id)}
                                 onVoteHandler={this.props.voteComment}
-                                context={configuration.context}/>
+                                context={configuration.context}
+                                voteUpOnly={configuration.voteUpOnly}/>
                         </CSSTransition>
                     )}
                     </TransitionGroup>

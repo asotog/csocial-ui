@@ -111,6 +111,7 @@ Comment's actions: delete, reply, like, upload image
     }
     a {
         color: $comment-actions-text-color;
+        display: inline-block;
         font-size: 12px;
         padding: 0 5px;
         text-decoration: none;
@@ -122,6 +123,9 @@ Comment's actions: delete, reply, like, upload image
     .csui-vote-down.csui-voted {
         font-weight: bold;
         color: $comment-voted-color;
+    }
+    .csui-vote-up.csui-voted.csui-icon-like {
+        color: $comment-liked-color;
     }
 }
 

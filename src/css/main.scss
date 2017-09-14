@@ -1,4 +1,5 @@
-@import "icons";
+@import "icons"; // imports css provided exactly as fontello generates based on fontello.json config file
+@import "icons_custom";
 @import "variables";
 @import "mixins";
 @import "modules/modal";
