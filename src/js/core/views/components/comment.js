@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import CSSTransition from 'react-transition-group/CSSTransition';
 
 import {ProgressCircular} from './progress';
 import ErrorMessage from './error-message';
@@ -91,8 +93,20 @@ class Comment extends Component {
                     </ul>
                     */}
                     <ul className="csui-comment-actions csui-right">
-                        <li><a href="#" className={this.getVoteCSS().voteUp} onClick={this.onVoteUp.bind(this)}>{voteUpDisplay}</a></li>
-                        <li hidden={voteUpOnly}><a href="#" className={this.getVoteCSS().voteDown} onClick={this.onVoteDown.bind(this)}>{voteDownDisplay}</a></li>
+                        <TransitionGroup component="li">
+                            <CSSTransition key={comment.votesUp.length} classNames="csui-slideup-transition" timeout={{enter: 400*2, exit: 400}}>
+                                <a href="#"
+                                    className={this.getVoteCSS().voteUp}
+                                    onClick={this.onVoteUp.bind(this)}>{voteUpDisplay}</a>
+                            </CSSTransition>
+                        </TransitionGroup>
+                        <TransitionGroup component="li" hidden={voteUpOnly}>
+                            <CSSTransition key={comment.votesDown.length} classNames="csui-slidedown-transition" timeout={{enter: 400*2, exit: 400}}>
+                                <a href="#"
+                                    className={this.getVoteCSS().voteDown} 
+                                    onClick={this.onVoteDown.bind(this)}>{voteDownDisplay}</a>
+                            </CSSTransition>
+                        </TransitionGroup>
                         {/*<li><a className="csui-icon-reply" href="#"></a></li> */}
                         {this.isCurrentUserOwner() ? 
                             <li><a className="csui-icon-trash-empty" href="#" onClick={this.onDeleteClick.bind(this)}></a></li> : null}

@@ -98,6 +98,7 @@ Comment's actions: delete, reply, like, upload image
     li {
         display: block;
         float: left;
+        position: relative;
         &:after {
             content: '|';
             color: $comment-actions-separator-color;
@@ -147,3 +148,56 @@ Comment's actions: delete, reply, like, upload image
     opacity: 0.01;
     transition: opacity 600ms ease-in;
 }
+
+/* transition for slide up: usually for voting up  */
+$csui-slideup-transition-time: 400ms; 
+.csui-slideup-transition-enter {
+    opacity: 0.01;
+    transform: translateY(100%);
+}
+
+.csui-slideup-transition-enter.csui-slideup-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform $csui-slideup-transition-time ease-in $csui-slideup-transition-time, opacity $csui-slideup-transition-time ease-in $csui-slideup-transition-time;
+}
+
+.csui-slideup-transition-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.csui-slideup-transition-exit.csui-slideup-transition-exit-active {
+    opacity: 0.01;
+    transform: translateY(-100%);
+    transition: transform $csui-slideup-transition-time ease-in, opacity $csui-slideup-transition-time ease-in;
+}
+
+/* transition for slide down: usually for voting down  */
+$csui-slidedown-transition-time: 400ms; 
+.csui-slidedown-transition-enter {
+    opacity: 0.01;
+    transform: translateY(-100%);
+}
+
+.csui-slidedown-transition-enter.csui-slidedown-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform $csui-slidedown-transition-time ease-in $csui-slidedown-transition-time, opacity $csui-slidedown-transition-time ease-in $csui-slidedown-transition-time;
+}
+
+.csui-slidedown-transition-exit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.csui-slidedown-transition-exit.csui-slidedown-transition-exit-active {
+    opacity: 0.01;
+    transform: translateY(100%);
+    transition: transform $csui-slidedown-transition-time ease-in, opacity $csui-slidedown-transition-time ease-in;
+}
+
+
