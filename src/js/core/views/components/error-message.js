@@ -12,7 +12,7 @@ class ErrorMessage extends Component {
         const currentMessage = !errorProvider ? message : this.retrieveErrorMessage(errorProvider);
         
         return (
-            <div className="csui-message-container">
+            <div className="csui-message-container csui-clearfix">
                 {this.renderMessage(currentMessage)}
             </div>
         );

@@ -97,15 +97,15 @@ class Comment extends Component {
                         {this.isCurrentUserOwner() ? 
                             <li><a className="csui-icon-trash-empty" href="#" onClick={this.onDeleteClick.bind(this)}></a></li> : null}
                     </ul>
+                    <ErrorMessage show={!!comment.error}
+                        errorProvider={comment.error}
+                        authenticationFailedMessage={strings.errorAuthenticationFailed}
+                        message={strings.errorDefault}/>
                 </div>
                 <div className="csui-comment-children"></div>
                 <div className="csui-comment-progress">
                     <ProgressCircular/>
                 </div>
-                <ErrorMessage show={!!comment.error}
-                    errorProvider={comment.error}
-                    authenticationFailedMessage={strings.errorAuthenticationFailed}
-                    message={strings.errorDefault}/>
             </div>
         );
     }

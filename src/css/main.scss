@@ -20,6 +20,9 @@
     * {
         box-sizing: border-box;
     }
+    .csui-clearfix {
+        @include clearfix;
+    }
     .csui-left {
         float: left;
     }

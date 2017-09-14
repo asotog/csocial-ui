@@ -18,3 +18,10 @@ textarea {
         padding: 10px 5px;
     }
 }
+
+textarea {
+    &.csui-form-control {
+        border-radius: 5px;
+        border-width: 2px;
+    }
+}
