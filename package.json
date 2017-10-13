@@ -40,18 +40,18 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
-    "deepmerge": "^1.5.1",
-    "moment": "^2.18.1",
+    "deepmerge": "^1.5.2",
+    "moment": "^2.19.1",
     "promise-polyfill": "^6.0.2",
     "query-string": "^4.3.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "react-localization": "^0.1.1",
-    "react-modal": "^2.2.2",
-    "react-redux": "^5.0.5",
-    "react-transition-group": "^2.2.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-localization": "^0.1.2",
+    "react-modal": "^2.4.1",
+    "react-redux": "^5.0.6",
+    "react-transition-group": "^2.2.1",
     "redux": "^3.7.2",
-    "redux-form": "^7.0.1",
+    "redux-form": "^7.1.1",
     "redux-thunk": "^2.2.0"
   }
 }
