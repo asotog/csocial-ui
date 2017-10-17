@@ -1,6 +1,6 @@
 import LocalizedStrings from 'react-localization';
 import merge from 'deepmerge';
-import moment from 'moment';
+import { format, distanceInWordsToNow, addHours} from 'date-fns';
 
 import Cfg from './configuration';
 
@@ -26,8 +26,9 @@ export const strings = new LocalizedStrings(merge(defaultStrings, Cfg.get('local
 
 export const formatDate = function(date) {
     const tz = new Date(date).getTimezoneOffset() / 60;
+    const currentTimezoneDate = addHours(new Date(date), tz);
     if (Cfg.get('dateFormat') === 'relative') {
-        return moment(date).add(tz, 'hours').fromNow();
+       return distanceInWordsToNow(currentTimezoneDate, {addSuffix: true});
     }
-    return moment(date).add(tz, 'hours').format(Cfg.get('dateFormat'));
+    return format(currentTimezoneDate, Cfg.get('dateFormat')); 
 };
