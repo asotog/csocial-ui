@@ -42,7 +42,8 @@
             crafter.social.comments.init({
                 target: '#post-1',
                 context: 'f5b143c2-f1c0-4a10-b56e-f485f00d3fe9',
-                commentUrl: '/index.html'
+                commentUrl: '/index.html',
+                scrollOnCommentPosted: true
             });
 
             crafter.social.comments.init({
@@ -52,6 +53,10 @@
                 voteUpOnly: true
             });
         });
+        // avoid scrolling on page anchors,
+        // zenscroll is added by comments to scroll into comments 
+        // once posted and created
+        window.noZensmooth = true; 
     </script>
 
     <script src="/build/main.js"></script>

@@ -18,8 +18,8 @@ class CommentsWidgetContainer extends Component {
     }
 
     onPostComment(body) {
-        const {target, context, commentUrl} = this.props.configuration;
-        this.props.postComment(body, target, context, commentUrl);
+        const {target, context, commentUrl, scrollOnCommentPosted} = this.props.configuration;
+        this.props.postComment(body, target, context, commentUrl, scrollOnCommentPosted);
     }
 
     render() {
@@ -32,7 +32,7 @@ class CommentsWidgetContainer extends Component {
                     <TransitionGroup>
                     {comments.comments.map(comment => 
                         <CSSTransition key={comment._id} classNames="csui-comment-transition" timeout={600}>
-                            <Comment comment={comment}
+                            <Comment comment={comment} scrollInto={comment.scrollOnCommentPosted}
                                 onDeleteHandler={_ => this.onDeleteComment(comment._id)}
                                 onVoteHandler={this.props.voteComment}
                                 context={configuration.context}

@@ -59,11 +59,11 @@ export function receiveLoadCommentsResponse(data) {
  * 
  * 
  */
-export function postComment(body, thread, context, commentUrl) {
+export function postComment(body, thread, context, commentUrl, scrollOnCommentPosted) {
     return function (dispatch) {
         dispatch(postRequest());
         return Services.postComment(body, thread, context, commentUrl).then(data => {
-            dispatch(receivePostCommentResponse(data))
+            dispatch(receivePostCommentResponse({...data, scrollOnCommentPosted: (scrollOnCommentPosted === true)}))
         }).catch(error => {
             dispatch(receiveError(Constants.Actions.POST_COMMENT_DATA_ERROR, error));
         });

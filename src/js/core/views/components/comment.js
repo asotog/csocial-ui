@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import CSSTransition from 'react-transition-group/CSSTransition';
+import zenscroll from 'zenscroll';
 
 import {ProgressCircular} from './progress';
 import ErrorMessage from './error-message';
@@ -18,6 +19,17 @@ import Director from '../../director';
  * 
  */
 class Comment extends Component {
+
+    constructor (props) {
+        super(props);
+        this.componentDOM = null;
+    }
+
+    componentDidMount() {
+        if (this.props.scrollInto) { // if true, scrolls document to this element
+            zenscroll.to(this.componentDOM);
+        }
+    }
 
     onDeleteClick(event) {
         const {comment} = this.props;
@@ -75,7 +87,7 @@ class Comment extends Component {
         const voteUpDisplay = comment.votesUp.length ? comment.votesUp.length : '';
         const voteDownDisplay = comment.votesDown.length ? comment.votesDown.length : '';
         return (
-            <div className={cssClasses}>
+            <div className={cssClasses} ref={ref => this.componentDOM = ref}>
                 <div className="csui-comment-inner">
                     <div className="csui-comment-head">
                         <span className="csui-comment-head-portrait">
