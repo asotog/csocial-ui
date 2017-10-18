@@ -28,6 +28,7 @@ class LoginForm extends Component {
     componentDidMount() {
         document.addEventListener(Constants.EVENT_CRAFTER_SOCIAL_SHOW_LOGIN, _ => { 
             this.setState({...this.state, show: true});
+            this.refs.usernameInput.focus();
         });
     }
 
